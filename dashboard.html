@@ -17,6 +17,7 @@
     ></script>
     <script>
       function switchView(tab) {
+        console.log(tab);
         let tabs = [
           "dashAcc",
           "dashBill",
@@ -25,18 +26,26 @@
           "dashFeed",
           "dashConn",
         ];
-        for (tab of tabs) {
+
+        for (let tab of tabs) {
           // Make all the links inactive
-          elLink = document.querySelector("." + tab + "Link");
-          elLink.classList.remove("active");
+          elLinks = document.querySelectorAll("." + tab + "Link");
+          // Drop down title
+          elLinks.forEach((elLink) => {
+            elLink.classList.remove("active");
+          });
           // Make all the content disappear
           el = document.querySelector("." + tab);
           el.classList.add("d-none");
         }
-        elLink = document.querySelector("." + tab + "Link");
-        elLink.classList.add("active");
+        elLinks = document.querySelectorAll("." + tab + "Link");
+        elLinks.forEach((elLink) => {
+          elLink.classList.add("active");
+        });
         el = document.querySelector("." + tab);
         el.classList.remove("d-none");
+        ddt = document.getElementById("dropdownMenuButton");
+        ddt.innerText = elLinks[0].innerText;
       }
     </script>
     <style>
@@ -45,6 +54,12 @@
         background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
         height: 100%;
         marin: 0;
+      }
+      .dropdown {
+        position: absolute; /* Ensure dropdown is absolutely positioned */
+        left: 50%; /* Move the left edge to the center */
+        transform: translateX(-50%); /* Center the dropdown */
+        z-index: 100;
       }
     </style>
   </head>
@@ -92,10 +107,83 @@
     </nav>
 
     <!-- Entire Page -->
+
     <div class="w-100 h-75 row">
+      <!-- Mobile Dropdown -->
+      <div class="container mt-2 d-md-none">
+        <div class="dropdown">
+          <button
+            class="btn btn-primary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Account
+          </button>
+          <ul class="dropdown-menu flex-column mb-auto">
+            <li class="nav-item">
+              <a
+                onclick="switchView('dashAcc')"
+                href="#"
+                class="nav-link active dashAccLink dropdown-item"
+                aria-current="page"
+              >
+                Account
+              </a>
+            </li>
+            <li>
+              <a
+                onclick="switchView('dashBill')"
+                href="#"
+                class="nav-link dashBillLink dropdown-item"
+              >
+                Bill Payments
+              </a>
+            </li>
+            <li>
+              <a
+                onclick="switchView('dashHist')"
+                href="#"
+                class="nav-link dashHistLink dropdown-item"
+              >
+                History
+              </a>
+            </li>
+            <li>
+              <a
+                onclick="switchView('dashComp')"
+                href="#"
+                class="nav-link dashCompLink dropdown-item"
+              >
+                Complaints
+              </a>
+            </li>
+            <li>
+              <a
+                onclick="switchView('dashFeed')"
+                href="#"
+                class="nav-link dashFeedLink dropdown-item"
+              >
+                Feedback
+              </a>
+            </li>
+            <li>
+              <a
+                onclick="switchView('dashConn')"
+                href="#"
+                class="nav-link dashConnLink dropdown-item"
+              >
+                New Connection
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- Dashboard Sidebar -->
       <div
-        class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark h-100 col-3"
+        class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark h-100 col-2 d-none d-md-block"
         style="width: 280px"
       >
         <span class="fs-4 text-center">Dashboard</span>
@@ -158,14 +246,17 @@
           </li>
         </ul>
       </div>
+
       <!-- Center content -->
-      <div class="col-9 d-flex flex-column m-4 align-items-center">
-        <div class="dashAcc d-none">
+      <div
+        class="col-11 col-md-7 mt-3 d-flex flex-column m-4 align-items-center"
+      >
+        <div class="dashAcc">
           <p class="h5">Account Details</p>
         </div>
 
         <!-- Bill Payments -->
-        <div class="container mt-5 dashBill d-none">
+        <div class="container mt-3 dashBill d-none">
           <div class="row justify-content-center">
             <div class="col-md-6">
               <div class="card">
@@ -225,8 +316,9 @@
             </div>
           </div>
         </div>
+
         <!-- Payment History -->
-        <div class="container mt-5 d-none">
+        <div class="container mt-4 d-none dashHist">
           <h2 class="mb-4">Electricity Bill Payment History</h2>
           <div class="table-responsive">
             <table class="table table-striped table-bordered">
@@ -311,7 +403,7 @@
         </div>
 
         <!-- Complaints -->
-        <div class="container mt-5 d-none">
+        <div class="container mt-4 d-none dashComp">
           <h2 class="mb-4">Complaint Form</h2>
           <form>
             <div class="form-group">
@@ -375,7 +467,7 @@
         </div>
 
         <!-- Feedback Form -->
-        <div class="container mt-5 d-none">
+        <div class="container mt-4 d-none dashFeed">
           <h2 class="mb-4">Feedback Form</h2>
           <form>
             <div class="form-group">
@@ -426,7 +518,7 @@
         </div>
 
         <!-- New Connection -->
-        <div class="container mt-5">
+        <div class="container mt-4 dashConn d-none">
           <h2 class="mb-4">New Electricity Connection Form</h2>
           <form>
             <div class="form-group">
