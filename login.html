@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Login</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function swapLogin() {
+        console.log("swapping");
+        let desc = document.querySelector(".desc");
+        let descBtn = document.querySelector(".descBtn");
+        let loginForm = document.querySelector(".loginForm");
+        let signUpForm = document.querySelector(".signUpForm");
+        if (descBtn.innerText === "Login") {
+          desc.innerText = "New here? Let's create your new account!";
+          descBtn.innerText = "Sign Up";
+          signUpForm.classList.add("d-none");
+          loginForm.classList.remove("d-none");
+        } else {
+          desc.innerText = "Already have an account?";
+          descBtn.innerText = "Login";
+          signUpForm.classList.remove("d-none");
+          loginForm.classList.add("d-none");
+        }
+      }
+    </script>
+    <style>
+      html,
+      body {
+        background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+        height: 100%;
+        marin: 0;
+      }
+      .container-fluid {
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="navbar navbar-dark bg-dark text-white d-flex sticky-top justify-content-between align-items-center px-4"
+    >
+      <!-- Left hamburger -->
+      <div class="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="2em"
+          height="2em"
+          viewBox="0 0 32 32"
+        >
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 8h22M5 16h22M5 24h22"
+          />
+        </svg>
+      </div>
+      <div class="">
+        <p class="h4">MH EBill</p>
+      </div>
+      <div class="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="2em"
+          height="2em"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d="M8 7a4 4 0 1 1 8 0a4 4 0 0 1-8 0m0 6a5 5 0 0 0-5 5a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3a5 5 0 0 0-5-5z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+    </nav>
+
+    <!-- Entire Page -->
+    <div class="w-100 h-100">
+      <!-- Entire Content -->
+      <div class="container-fluid row mx-auto p-5 w-50">
+        <!-- Description(Login) -->
+        <div
+          class="col-sm-4 d-flex flex-column justify-content-center align-items-center"
+          style="background-color: #8ec5fc; border-radius: 50px 0px 0px 50px"
+        >
+          <p class="h5 desc">Already have an account?</p>
+          <button
+            class="btn btn-xl btn-dark rounded-pill descBtn"
+            onclick="swapLogin()"
+          >
+            Login
+          </button>
+        </div>
+        <!-- Description(Sign Up) -->
+        <!-- Forms -->
+        <div
+          class="col-sm-8 bg-light d-flex flex-column align-items-center justify-content-center p-3"
+        >
+          <!-- Sign Up Form -->
+          <form
+            action="#"
+            method="post"
+            class="signUpForm"
+            style="width: 300px"
+          >
+            <fieldset>
+              <legend>Sign Up</legend>
+              <div class="form-group my-2">
+                <label for="phone">Phone number</label>
+                <input class="form-control" type="tel" name="phone" required />
+              </div>
+              <div class="form-group my-2">
+                <label for="pass">Password</label>
+                <input
+                  class="form-control"
+                  type="password"
+                  name="pass"
+                  required
+                />
+              </div>
+              <div class="form-group my-2">
+                <label for="conpass">Confirm Password</label>
+                <input
+                  class="form-control"
+                  type="password"
+                  name="conpass"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                class="btn btn-dark btn-xl rounded-pill m-2"
+              >
+                Get OTP
+              </button>
+            </fieldset>
+          </form>
+          <!-- Login Form -->
+          <form
+            action="#"
+            method="post"
+            class="d-none loginForm"
+            style="width: 300px"
+          >
+            <fieldset>
+              <legend>Login</legend>
+              <div class="form-group my-2">
+                <label for="phone">Phone number</label>
+                <input class="form-control" type="tel" name="phone" required />
+              </div>
+              <div class="form-group my-2">
+                <label for="pass">Password</label>
+                <input
+                  class="form-control"
+                  type="password"
+                  name="pass"
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                class="btn btn-dark btn-xl rounded-pill m-2"
+              >
+                Login
+              </button>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
