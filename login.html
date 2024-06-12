@@ -20,16 +20,19 @@
         console.log("swapping");
         let desc = document.querySelector(".desc");
         let descBtn = document.querySelector(".descBtn");
+        let swapLink = document.querySelector(".swapLink");
         let loginForm = document.querySelector(".loginForm");
         let signUpForm = document.querySelector(".signUpForm");
         if (descBtn.innerText === "Login") {
-          desc.innerText = "New here? Let's create your new account!";
+          desc.innerText = "Create a new account?";
           descBtn.innerText = "Sign Up";
+          swapLink.innerText = "Create a new account?";
           signUpForm.classList.add("d-none");
           loginForm.classList.remove("d-none");
         } else {
           desc.innerText = "Already have an account?";
           descBtn.innerText = "Login";
+          swapLink.innerText = "Have an account?";
           signUpForm.classList.remove("d-none");
           loginForm.classList.add("d-none");
         }
@@ -96,29 +99,29 @@
       <div class="container-fluid row mx-auto p-5 w-50">
         <!-- Description(Login) -->
         <div
-          class="col-sm-4 d-flex flex-column justify-content-center align-items-center"
+          class="d-none d-md-block col-8 col-md-4"
           style="background-color: #8ec5fc; border-radius: 50px 0px 0px 50px"
         >
-          <p class="h5 desc">Already have an account?</p>
-          <button
-            class="btn btn-xl btn-dark rounded-pill descBtn"
-            onclick="swapLogin()"
+          <img src="bulb.svg" class="p-4" />
+          <div
+            class="d-flex flex-column justify-content-center align-items-center px-5 py-2"
           >
-            Login
-          </button>
+            <p class="text-center desc">Already have an account?</p>
+            <button
+              class="btn btn-xl btn-dark rounded-pill descBtn"
+              onclick="swapLogin()"
+            >
+              Login
+            </button>
+          </div>
         </div>
         <!-- Description(Sign Up) -->
         <!-- Forms -->
         <div
-          class="col-sm-8 bg-light d-flex flex-column align-items-center justify-content-center p-3"
+          class="mx-auto col-7 col-md-8 d-flex flex-column align-items-center justify-content-center p-3"
         >
           <!-- Sign Up Form -->
-          <form
-            action="#"
-            method="post"
-            class="signUpForm"
-            style="width: 300px"
-          >
+          <form method="post" class="signUpForm" style="width: 300px">
             <fieldset>
               <legend>Sign Up</legend>
               <div class="form-group my-2">
@@ -143,17 +146,17 @@
                   required
                 />
               </div>
-              <button
-                type="submit"
+              <a
+                href="dashboard.html"
                 class="btn btn-dark btn-xl rounded-pill m-2"
               >
-                Get OTP
-              </button>
+                Get OTP</a
+              >
             </fieldset>
           </form>
           <!-- Login Form -->
           <form
-            action="#"
+            action="dashboard.html"
             method="post"
             class="d-none loginForm"
             style="width: 300px"
@@ -173,14 +176,19 @@
                   required
                 />
               </div>
-              <button
-                type="submit"
+              <a
+                href="dashboard.html"
                 class="btn btn-dark btn-xl rounded-pill m-2"
               >
-                Login
-              </button>
+                Get OTP</a
+              >
             </fieldset>
           </form>
+          <a
+            class="text-nowrap d-md-none swapLink link-primary"
+            onclick="swapLogin()"
+            >Have an account?</a
+          >
         </div>
       </div>
     </div>
