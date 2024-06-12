@@ -16,75 +16,106 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        background-color: #8ec5fc;
+        background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+      }
+    </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">MH EBill</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="./login.html">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./dashboard.html">Dashboard</a>
-          </li>
-        </ul>
+    <nav
+      class="navbar navbar-dark bg-dark text-white d-flex sticky-top justify-content-between align-items-center px-4"
+    >
+      <!-- Left hamburger -->
+      <div class="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="2em"
+          height="2em"
+          viewBox="0 0 32 32"
+        >
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 8h22M5 16h22M5 24h22"
+          />
+        </svg>
+      </div>
+      <div class="">
+        <p class="h4">MH EBill</p>
+      </div>
+      <div class="">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="2em"
+          height="2em"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d="M8 7a4 4 0 1 1 8 0a4 4 0 0 1-8 0m0 6a5 5 0 0 0-5 5a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3a5 5 0 0 0-5-5z"
+            clip-rule="evenodd"
+          />
+        </svg>
       </div>
     </nav>
 
-    <div class="jumbotron text-center">
-      <h1 class="display-4">Welcome to MH EBill</h1>
-      <p class="lead">
-        Your convenient online electricity bill payment solution.
-      </p>
-      <hr class="my-4" />
-      <p>
-        Pay your bills securely and efficiently with MH EBill. Start now by
-        logging in or accessing your dashboard.
-      </p>
-      <a class="btn btn-primary btn-lg" href="./login.html" role="button"
-        >Login</a
-      >
-      <a class="btn btn-secondary btn-lg" href="./dashboard.html" role="button"
-        >Dashboard</a
-      >
-    </div>
-
     <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Easy Payments</h2>
-          <p>
-            Make your electricity bill payments with just a few clicks, anytime
-            and anywhere.
+      <div class="jumbotron text-center w-75 mx-auto" style="z-index: 0">
+        <h1 class="display-4">Welcome to MH EBill</h1>
+        <div class="d-flex justify-content-center">
+          <p class="lead">
+            Your convenient online electricity bill payment solution.
+            <img src="bulb.svg" width="80" />
           </p>
         </div>
-        <div class="col-md-4">
-          <h2>Secure Transactions</h2>
-          <p>
-            We ensure your payment information is safe with industry-standard
-            encryption and security measures.
-          </p>
-        </div>
-        <div class="col-md-4">
-          <h2>24/7 Support</h2>
-          <p>
-            Our support team is available around the clock to assist you with
-            any issues or queries.
-          </p>
+        <hr class="my-4" />
+        <a
+          class="btn rounded-pill btn-primary btn-lg"
+          href="./login.html"
+          role="button"
+          >Login</a
+        >
+      </div>
+
+      <div class="text-white container mt-5 z-1" style="z-index: 1">
+        <div class="row justify-content-center">
+          <div class="col-md-3 rounded m-2" style="background-color: #026592">
+            <h2>Easy Payments</h2>
+            <p>
+              Make your electricity bill payments with just a few clicks,
+              anytime and anywhere.
+            </p>
+          </div>
+          <div class="col-md-3 m-2 rounded" style="background-color: #02557a">
+            <h2>Secure Transactions</h2>
+            <p>
+              We ensure your payment information is safe with industry-standard
+              encryption and security measures.
+            </p>
+          </div>
+          <div class="col-md-3 m-2 rounded" style="background-color: #014462">
+            <h2>24/7 Support</h2>
+            <p>
+              Our support team is available around the clock to assist you with
+              any issues or queries.
+            </p>
+          </div>
         </div>
       </div>
     </div>
+    <img
+      src="./waves.svg"
+      class="w-100 overflow-hidden position-absolute"
+      style="height: 50%; object-fit: cover; bottom: 0; z-index: -1"
+      alt="waves"
+    />
   </body>
 </html>
