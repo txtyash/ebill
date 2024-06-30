@@ -62,7 +62,7 @@
     }
     .dark-btn {
       background-color: #1d1e22;
-      color: #e1f2f7;
+      color: #fff;
     }
     .light-link {
       background-color: #e1f2f7;
@@ -73,16 +73,39 @@
     }
     .dark-link {
       background-color: #1d1e22;
-      color: #e1f2f7;
+      color: #fff;
     }
     .dark-link:hover {
-      color: #e1f2f7;
+      color: #fff;
     }
     .fancy-text {
       font-family: "Rufina", serif;
     }
+    .dropdown-toggle {
+      border-radius: 20px !important;
+      background-color: #1d1e22;
+      color: #fff;
+    }
+    .dropdown-toggle:hover {
+      background-color: #1d1e22;
+      color: #fff;
+    }
+    .dropdown-menu {
+      padding: 5px;
+      border-radius: 20px !important;
+      background-color: #1d1e22;
+      padding-right: 12px;
+    }
+    .dropdown-item {
+      background-color: #1d1e22;
+      color: #fff;
+    }
+    .dropdown-item:hover {
+      background-color: #e1f2f7;
+      color: #1d1e22;
+    }
   </style>
-  <body>
+  <body class="container">
     <p class="fancy-text h1">Mahavitaran</p>
     <p class="fancy-text h2">Mahavitaran</p>
 
@@ -103,6 +126,25 @@
         ></path>
       </svg>
     </a>
+
+    <div class="dropdown">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Dropdown button
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </div>
+
     <div class="bg-dark h-25 p-5 rounded">
       <p class="text-light h1">Light buttons on dark background</p>
       <button type="button" class="light-btn">Primary</button>
