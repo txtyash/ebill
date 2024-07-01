@@ -32,6 +32,7 @@
       background-blend-mode: soft-light, screen;
     }
     button {
+      height: 2.5rem;
       margin: 4px 3px;
       border-radius: 20px;
       border: 0px;
@@ -111,8 +112,110 @@
       color: #1d1e22 !important;
       border-radius: 20px !important;
     }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .auth-form {
+      background-color: #e1f2f7;
+      border-radius: 20px;
+      padding: 3%;
+      border: 1px solid #1d1e22;
+    }
+    .form-control {
+      border-radius: 20px;
+      border: 0px;
+    }
   </style>
   <body class="container">
+    <div class="auth-form">
+      <!-- Login form -->
+      <form class="login-form">
+        <div class="form-group">
+          <p class="h4 text-center">Login to your account</p>
+          <label for="exampleInputEmail1">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password"
+          />
+        </div>
+        <button type="submit" class="dark-btn">Submit</button>
+      </form>
+
+      <!-- Signup form -->
+      <form class="register-form d-none">
+        <div class="form-group">
+          <p class="h4 text-center">Sign up for a new account</p>
+          <label for="exampleInputEmail1">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password"
+          />
+        </div>
+        <button type="submit" class="dark-btn">Submit</button>
+      </form>
+
+      <!-- Account recovery form -->
+      <form class="recovery-form d-none">
+        <div class="form-group">
+          <p class="h4 text-center">Let's recover your account</p>
+          <label for="exampleInputEmail1">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Enter email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password"
+          />
+        </div>
+        <button type="submit" class="dark-btn">Submit</button>
+      </form>
+      <!-- These buttons change the form being displayed -->
+      <div class="d-flex justify-content-center w-100 mt-4 mb-1">
+        <button type="button" class="dark-btn login-btn d-none">
+          Have an account?
+        </button>
+        <button type="button" class="dark-btn register-btn">
+          Create a new account?
+        </button>
+        <button type="button" class="dark-btn recovery-btn">
+          Forgot password?
+        </button>
+      </div>
+    </div>
+
     <p class="fancy-text h1">Mahavitaran</p>
     <p class="fancy-text h2">Mahavitaran</p>
 
@@ -232,4 +335,30 @@
       </div>
     </div>
   </body>
+  <script>
+    document.querySelector(".login-btn").addEventListener("click", () => {
+      document.querySelector(".login-form").classList.remove("d-none");
+      document.querySelector(".register-form").classList.add("d-none");
+      document.querySelector(".recovery-form").classList.add("d-none");
+      document.querySelector(".login-btn").classList.add("d-none");
+      document.querySelector(".register-btn").classList.remove("d-none");
+      document.querySelector(".recovery-btn").classList.remove("d-none");
+    });
+    document.querySelector(".register-btn").addEventListener("click", () => {
+      document.querySelector(".login-form").classList.add("d-none");
+      document.querySelector(".register-form").classList.remove("d-none");
+      document.querySelector(".recovery-form").classList.add("d-none");
+      document.querySelector(".login-btn").classList.remove("d-none");
+      document.querySelector(".register-btn").classList.add("d-none");
+      document.querySelector(".recovery-btn").classList.remove("d-none");
+    });
+    document.querySelector(".recovery-btn").addEventListener("click", () => {
+      document.querySelector(".login-form").classList.add("d-none");
+      document.querySelector(".register-form").classList.add("d-none");
+      document.querySelector(".recovery-form").classList.remove("d-none");
+      document.querySelector(".login-btn").classList.remove("d-none");
+      document.querySelector(".register-btn").classList.remove("d-none");
+      document.querySelector(".recovery-btn").classList.add("d-none");
+    });
+  </script>
 </html>
